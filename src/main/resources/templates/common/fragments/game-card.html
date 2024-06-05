@@ -1,0 +1,41 @@
+<!--<html lang="en"-->
+<!--      xmlns:th="http://www.thymeleaf.org"-->
+<!--      th:fragment="GameCardFragment"-->
+<!--&gt;-->
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+>
+
+<head th:fragment="GameCardHead">
+<!--  <link rel="stylesheet" href="../../../static/css/game-card.css">-->
+<!--  <link rel="stylesheet" th:href="@{/css/game-card.css}">-->
+  <link rel="stylesheet" th:href="@{/css/game-card-new.css}">
+  <script type="module" defer th:src="@{/js/game_card.js}"></script>
+</head>
+
+
+<div class="card-div" th:fragment="GameCardFragment">
+  <template id="card-template">
+    <div class="card-container">
+      <a class="hero-image-container">
+        <img class="hero-image" src="https://i.postimg.cc/NfR2yhNs/image-equilibrium.jpg" alt="Spinning glass cube"/>
+      </a>
+      <main class="card-body">
+        <h1><a href="#"></a>Game Name</h1>
+        <p>Game Detail Description ... Front is Very Fuck!</p>
+      </main>
+      <div class="platforms">
+        <div class="platform-logo">
+          <i class="fa-brands fa-steam"></i>
+        </div>
+        <div class="platform-logo">
+          <i class="fa-brands fa-playstation"></i>
+        </div>
+        <div class="platform-logo">
+          <i class="fa-brands fa-xbox"></i>
+        </div>
+      </div>
+    </div>
+  </template>
+</div>
+</html>

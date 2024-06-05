@@ -1,0 +1,26 @@
+/*.card-div {*/
+/*    display: grid;*/
+/*    grid-template-columns: repeat(3, minmax(0, 1fr));*/
+/*    gap: 10px;*/
+/*    justify-content: start;*/
+/*}*/
+/*@media (max-width: 900px) {*/
+/*    .card-div {*/
+/*        grid-template-columns: repeat(2, minmax(0, 1fr));*/
+/*    }*/
+/*}*/
+
+/*@media (max-width: 600px) {*/
+/*    .card-div {*/
+/*        grid-template-columns: 1fr;*/
+/*    }*/
+/*}*/
+
+
+.card-div {
+    display: flex;
+    /*grid-template-columns: repeat(3, minmax(0, 1fr));*/
+    flex-wrap: wrap;
+    gap: 5px;
+    justify-content: start;
+}

@@ -1,0 +1,32 @@
+
+
+.ly-header {
+    width: 100%;
+    margin-left: var(--margin-left-side);
+    padding-left: 20px;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+    /*color: var(--text-color);*/
+}
+
+.head-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 3em;
+}
+
+.background-image {
+    background-image: url('/images/bg-2.png'); /* Update with your image path */
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.dark-overlay {
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Adjust opacity (0.5 here) as needed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white; /* Set text color */
+}

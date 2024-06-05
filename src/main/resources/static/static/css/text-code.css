@@ -1,0 +1,46 @@
+@import url('https://db.onlinewebfonts.com/c/4c19fc875e7ba1e6831129de3ab5ac0b?family=Retro+Gaming');
+
+div.text-code * {
+  box-sizing: border-box;
+}
+
+div.text-code {
+  /*width: 100%;*/
+  /*height: 100%;*/
+  margin: 0;
+  overflow: hidden;
+  /*background: #222;*/
+  font-family: monospace;
+}
+
+/*div.text-code h1 {*/
+/*  margin-top: 0;*/
+/*}*/
+
+div.text-code button {
+  font-family: monospace;
+  border: 2px solid tomato;
+  background: transparent;
+  width: 250px;
+  font-size: 1.2em;
+  padding: 10px 0;
+  border-radius: 5px;
+  display: block;
+  cursor: pointer;
+  margin: 1em auto;
+}
+
+div.text-code article {
+  /*font-family: "Retro Gaming";*/
+  font-family: "Press Start 2P";
+  width: 80%;
+  margin: auto;
+  font-size: 2em;
+  top: 50%;
+  position: relative;
+  transform: translateY(-50%);
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}

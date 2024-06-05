@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<!--<html lang="en">-->
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{common/layouts/default-layout}"
+      layout:fragment="Content"
+>
+<head>
+<!--    <th:block th:include="/common/fragments/game-card :: GameCardHead"></th:block>-->
+    <link rel="stylesheet" th:href="@{/css/admin.css}">
+    <script type="module" defer th:src="@{/js/admin.js}"></script>
+</head>
+<body>
+<header th:replace="common/fragments/header :: HeaderFragment"></header>
+<div class="content">
+    <div class="sector">
+        <div class="sector-header">
+            <h1>Cluster.</h1>
+            <div class="cluster-plus">
+                <i class="fa-solid fa-circle-plus fa-3x"></i>
+            </div>
+        </div>
+        <div class="sector-body">
+            <div class="sector-in-box">
+                <div class="cluster-info table-area">
+                    <table class="cluster-table">
+                        <thead>
+                        <tr>
+                            <th scope="col">CLUSTER ID</th>
+                            <th scope="col">NAME</th>
+                            <th scope="col">APPLICATION TYPE</th>
+                            <th scope="col">DEPLOY TYPE</th>
+<!--                            <th scope="col">description</th>-->
+<!--                            <th scope="col">external Ip</th>-->
+<!--                            <th scope="col">domain</th>-->
+                            <th scope="col">CREATE</th>
+                        </tr>
+                        </thead>
+                        <tbody class="cluster-tbody">
+                        </tbody>
+                    </table>
+                    <div class="no-content">
+                        <h1> You Are Not Have Cluster!</h1>
+                    </div>
+                </div>
+<!--                <div class="cluster-btn-area">-->
+<!--                    <button class="btn-3d red">Add Cluster</button>-->
+<!--                </div>-->
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+
+<div class="modal-area">
+    <div class="overlay"></div>
+    <div class="window" tabindex="0">
+        <div class="window__title-bar">
+            <div class="window__title">
+                ADD CLUSTER
+            </div>
+            <button class="window__btn">
+                &times;
+                <span>Close</span>
+            </button>
+        </div>
+
+        <div class="window__body">
+            <div class="window__row">
+                <label>Cluster Name</label>
+                <input name="name">
+            </div>
+            <div class="window__row">
+                <label>Application Type</label>
+                <select id="application-select" name="application_type">
+                    <option value="KUBERNETES" selected>KUBERNETES</option>
+                    <option value="DOCKER">DOCKER</option>
+                </select>
+            </div>
+            <div class="window__row">
+                <label>Deploy Type</label>
+                <select id="deploy-select" name="deploy_type">
+                    <option value="PUBLIC" selected>PUBLIC</option>
+                    <option value="PRIVATE">PRIVATE</option>
+                </select>
+
+            </div>
+            <div class="window__row">
+                <label>Location</label>
+                <select id="location-select" name="location">
+                    <option value="KR" selected>KR</option>
+                </select>
+            </div>
+            <div class="window__row">
+                <label>Description</label>
+                <input name="description">
+            </div>
+            <div class="window__row">
+                <label>External Ip</label>
+                <input name="external_ip">
+            </div>
+            <div class="window__row">
+                <label>Domain</label>
+                <input name="domain">
+            </div>
+            <div class="window__func">
+                <button class="btn-3d red" id="create-cluster-btn">Add Cluster</button>
+            </div>
+        </div>
+
+<!--        <div class="window__status-bar">-->
+<!--            www &rarr; CSS &rarr; Experiments-->
+<!--        </div>-->
+    </div>
+
+</div>
+
+</body>
+</html>
+

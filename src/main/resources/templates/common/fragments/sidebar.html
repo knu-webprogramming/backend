@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<!-- Coding by CodingLab | www.codinglabweb.com -->
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="SidebarHead">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!----======== CSS ======== -->
+  <link rel="stylesheet" th:href="@{/css/sidebar.css}">
+  <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+
+  <script type="module" defer th:src="@{/js/sidebar.js}"></script>
+
+</head>
+<nav class="sidebar close" th:fragment="SidebarFragment">
+  <header>
+    <div class="image-text">
+                <span class="image">
+                    <img th:src="@{/images/logo.png}" alt="">
+                </span>
+
+      <div class="text logo-text">
+        <span class="name">Easy</span>
+        <span class="profession">To Dedicate</span>
+      </div>
+    </div>
+
+    <i class='bx bx-chevron-right toggle'></i>
+  </header>
+
+  <div class="menu-bar">
+    <div class="menu">
+
+      <ul class="menu-links">
+
+        <li class="nav-link">
+          <a href="/static">
+            <i class='bx bx-home-alt icon' ></i>
+            <span class="text nav-text">Home</span>
+          </a>
+        </li>
+
+        <li class="nav-link">
+          <a th:href="@{/games}">
+            <i class='bx bx-joystick icon' ></i>
+            <span class="text nav-text">Game</span>
+          </a>
+        </li>
+
+        <li class="nav-link" id="mypage-btn">
+          <a th:href="@{/member}">
+            <i class='bx bx-user-circle icon' ></i>
+            <span class="text nav-text">My Page</span>
+          </a>
+        </li>
+
+        <div class="line admin"></div>
+
+        <li class="nav-link admin" id="admin-btn">
+          <a th:href="@{/admin}">
+            <i class='bx bxs-wrench icon'></i>
+            <span class="text nav-text">Admin</span>
+          </a>
+        </li>
+
+      </ul>
+    </div>
+
+    <div class="bottom-content">
+      <li class="" id="login-btn">
+        <a th:href="@{/login}">
+          <i class='bx bx-log-in-circle icon' ></i>
+          <span class="text nav-text">Login</span>
+        </a>
+      </li>
+
+      <li class="" id="logout-btn">
+        <a href="#">
+          <i class='bx bx-log-out-circle icon' ></i>
+          <span class="text nav-text">Logout</span>
+        </a>
+      </li>
+
+      <li class="">
+        <a href="#">
+          <i class='bx bx-message-square-dots icon' ></i>
+          <span class="text nav-text">Contract</span>
+        </a>
+      </li>
+
+<!--      <li class="mode">-->
+<!--        <div class="sun-moon">-->
+<!--          <i class='bx bx-moon icon moon'></i>-->
+<!--          <i class='bx bx-sun icon sun'></i>-->
+<!--        </div>-->
+<!--        <span class="mode-text text">Dark mode</span>-->
+
+<!--        <div class="toggle-switch">-->
+<!--          <span class="switch"></span>-->
+<!--        </div>-->
+<!--      </li>-->
+
+    </div>
+  </div>
+
+</nav>
+</html>

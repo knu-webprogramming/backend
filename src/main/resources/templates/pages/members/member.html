@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<!--<html lang="en">-->
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{common/layouts/default-layout}"
+      layout:fragment="Content"
+>
+<head>
+    <link th:inline="css" th:href="@{/css/member.css}" rel="stylesheet"/>
+    <script type="module" defer th:src="@{/js/member.js}"></script>
+</head>
+<body>
+<header th:replace="common/fragments/header :: HeaderFragment"></header>
+<div class="content">
+    <div class="sector">
+        <div class="sector-header">
+            <h2>User Info.</h2>
+        </div>
+        <div class="sector-body">
+            <div class="sector-in-box">
+                <div class="user-info">
+                    <div class="user-info-row" id="nickname">
+                        <label>NICK NAME</label>
+                        <input type="text" name="nickname" value="">
+                    </div>
+                    <div class="user-info-row" id="role">
+                        <label>ROLE</label>
+                        <input type="text" name="role" value="">
+                    </div>
+                    <div class="user-info-row" id="auth">
+                        <label>AUTH</label>
+                        <input type="text" name="auth" value="">
+                    </div>
+                    <div class="user-info-row" id="created-at">
+                        <label>CREATED AT</label>
+                        <input type="text" name="created_at" value="">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="sector">
+        <div class="sector-header">
+            <h2>Servers.</h2>
+        </div>
+        <div class="sector-body">
+            <div class="server-area table-area">
+                <table class="server-table">
+                    <thead>
+                    <tr>
+                        <th scope="col">GAME</th>
+                        <th scope="col">SERVER ID</th>
+                        <th scope="col">SLOT</th>
+                        <th scope="col">DAY</th>
+                        <th scope="col">CREATE</th>
+                    </tr>
+                    </thead>
+                    <tbody class="server-tbody">
+                    </tbody>
+                </table>
+                <div class="no-content">
+                    <h1> You Are Not Have Server!</h1>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

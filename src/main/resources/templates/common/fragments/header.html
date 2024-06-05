@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      th:fragment="HeaderFragment"
+>
+
+<head>
+  <link rel="stylesheet" th:href="@{/css/header.css}">
+</head>
+
+<div class="background-image">
+  <div class="dark-overlay">
+    <!-- Your content goes here -->
+    <header class="ly-header">
+      <h1 class="head-title" th:text="${title}"></h1>
+      <h3> support <h3>
+    </header>
+<!--    <p>Your content here...</p>-->
+  </div>
+</div>
+
+
+</html>

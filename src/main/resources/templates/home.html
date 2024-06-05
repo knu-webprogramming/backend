@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!--<html lang="en">-->
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{common/layouts/default-layout}"
+      layout:fragment="Content"
+>
+<head>
+<!--    <meta charset="UTF-8">-->
+<!--    <title>ETD</title>-->
+
+    <link th:href="@{/css/home.css}" rel="stylesheet"/>
+    <link th:href="@{/css/text-code.css}" rel="stylesheet"/>
+    <script type="module" defer th:src="@{/js/text_code.js}"></script>
+    <script type="module" defer th:src="@{/js/token.js}"></script>
+</head>
+<body>
+<div class="content">
+    <div class="sector">
+        <div class="sector-header">
+            <h2> WELCOME! </h2>
+        </div>
+        <div class="sector-body">
+            <div class="screen">
+                <img th:src="@{/images/home-bg.png}">
+                <div class="text-code">
+                    <article>
+                        <h1 id="headline">Easy To Dedicate!</h1>
+                        <!--            <p id="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum dignissimos sint dolores necessitatibus repellendus in nemo expedita ullam numquam, placeat, laborum beatae, vero. Similique dolorem enim repellat impedit reiciendis, non.</p>-->
+                        <p id="text">Create Your Game Server!</p>
+                        <!--                <button id="shuffler">shuffle</button>-->
+                    </article>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="sector">
+        <div class="sector-header">
+            <h2> WE ARE </h2>
+        </div>
+        <div class="sector-body">
+            <div class="sector-in-box">
+
+            </div>
+        </div>
+    </div>
+
+    <div class="sector">
+        <div class="sector-header">
+            <h2> WHAT IS ETD? </h2>
+        </div>
+        <div class="sector-body">
+            <div class="sector-in-box">
+                <p>ETD is a service that makes your Dedicated server easy</p>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+</body>
+</html>

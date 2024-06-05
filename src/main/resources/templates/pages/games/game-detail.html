@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<!--<html lang="en">-->
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{common/layouts/default-layout}"
+      layout:fragment="Content"
+>
+<head>
+  <link th:inline="css" th:href="@{/css/option-card.css}" rel="stylesheet"/>
+<!--  <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />-->
+  <script type="module" defer th:src="@{/js/game_detail.js}"></script>
+</head>
+<body>
+<header th:replace="common/fragments/header :: HeaderFragment"></header>
+<div class="content">
+  <div class="sector">
+    <div class="sector-header support-platform">
+      <h2> SUPPORT PLATFORM </h2>
+      <div class="logos">
+        <i class="fa-brands fa-steam"></i>
+        <i class="fa-brands fa-playstation"></i>
+        <i class="fa-brands fa-xbox"></i>
+      </div>
+    </div>
+  </div>
+
+  <div class="sector">
+    <div class="sector-header header-side">
+      <h2> LOCATION </h2>
+      <select class="cluster-box" id="cluster-selector">
+
+      </select>
+    </div>
+  </div>
+
+  <div class="sector">
+    <div class="sector-header">
+      <h2> GAME SERVER OPTION </h2>
+    </div>
+    <div class="sector-body">
+      <div class="container">
+        <section class="card" id="first-opt">
+          <div class="product-image joystick">
+            <img th:src="@{/images/option/joystic.png}" alt="OFF-white Red Edition" draggable="false" />
+          </div>
+          <div class="product-info">
+            <h2>Small Option</h2>
+            <p>Recommend 4 player </p>
+            <div class="price">$999</div>
+          </div>
+          <div class="btn">
+            <button class="buy-btn" data-order-type="SMALL">ORDER NOW</button>
+        </section>
+        <section class="card" id="second-opt">
+          <div class="product-image gamepad">
+            <img th:src="@{/images/option/gamepad.png}" alt="OFF-white Red Edition" draggable="false" />
+          </div>
+          <div class="product-info">
+            <h2>Middle Option</h2>
+            <p>Recommend 16 player </p>
+            <div class="price">$999</div>
+          </div>
+          <div class="btn">
+            <button class="buy-btn" data-order-type="MIDDLE">ORDER NOW</button>
+        </section>
+        <section class="card" id="third-opt">
+          <div class="product-image famicom">
+            <img th:src="@{/images/option/famicom.png}" alt="OFF-white Red Edition" draggable="false" />
+          </div>
+          <div class="product-info">
+            <h2>Max Option</h2>
+            <p>Recommend 32 player </p>
+            <div class="price">$999</div>
+          </div>
+          <div class="btn">
+            <button class="buy-btn" data-order-type="MAX">ORDER NOW</button>
+        </section>
+        <!--      <section class="card" id="custom-opt">-->
+        <!--        <div class="product-image default">-->
+        <!--          <img src="https://i.ibb.co/cNWqxGx/red.png" alt="OFF-white Red Edition" draggable="false" />-->
+        <!--        </div>-->
+        <!--        <div class="product-info">-->
+        <!--          <h2>Custom Option</h2>-->
+        <!--          <p>The 10: Air Jordan 1 off-white - Chicago</p>-->
+        <!--          <div class="price">$999</div>-->
+        <!--        </div>-->
+        <!--        <div class="btn">-->
+        <!--          <button class="buy-btn">Buy Now</button>-->
+        <!--      </section>-->
+      </div>
+    </div>
+  </div>
+  <div class="sector">
+    <div class="sector-header">
+      <h2>기타 설명 구간</h2>
+    </div>
+
+  </div>
+
+</div>
+</body>
+</html>

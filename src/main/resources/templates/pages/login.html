@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!--<html lang="en">-->
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{common/layouts/default-layout}"
+      layout:fragment="Content"
+>
+<head>
+  <!--    <meta charset="UTF-8">-->
+  <!--    <title>ETD</title>-->
+
+  <link th:href="@{/css/login.css}" rel="stylesheet"/>
+</head>
+<body>
+<div class="content">
+
+  <div class="login-box">
+    <div class="login-header">
+      <h1>LOG IN</h1>
+    </div>
+    <div class="login-body blinking">
+      <p>Do You Want To Continue?</p>
+    </div>
+    <div class="login-btn-box">
+      <input type="button" class="login-btn" id="google-btn" onclick="location.href='/oauth2/authorization/google'">
+<!--      <input type="button" class="login-btn" id="kakao-btn" onclick="alert('현재 미 지원되는 로그인입니다!')">-->
+      <input type="button" class="login-btn" id="kakao-btn" onclick="location.href='/oauth2/authorization/kakao'">
+    </div>
+
+  </div>
+
+</div>
+</body>
+</html>

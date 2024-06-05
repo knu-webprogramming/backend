@@ -1,0 +1,368 @@
+/* Google Font Import - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+/*@import url('https://fonts.cdnfonts.com/css/retro-new-version');*/
+/*@import url('https://fonts.cdnfonts.com/css/retrolight');*/
+/*@import url('https://db.onlinewebfonts.com/c/4c19fc875e7ba1e6831129de3ab5ac0b?family=Retro+Gaming');*/
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P');
+/*@import url('https://fonts.googleapis.com/css?family=Fjalla+One&display=swap');*/
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%; /* 62.5% of the base size of 16px = 10px.*/
+}
+
+:root{
+     /* ===== Colors ===== */
+    /*--body-color: #E4E9F7;*/
+    /*--sidebar-color: #FFF;*/
+    /*--primary-color: #695CFE;*/
+    /*--primary-color-light: #F6F5FF;*/
+    /*--toggle-color: #DDD;*/
+    /*--text-color: #707070;*/
+
+    /*--body-color: #F55C47;*/
+    --body-color: #FF9843;
+    --sidebar-color: #F8F4EC;
+    --primary-color: #3468C0;
+    --primary-color-light: #86A7FC;
+    --toggle-color: #DDD;
+    --text-color: #707070;
+
+    /* ====== Transition ====== */
+    --tran-03: all 0.2s ease;
+    --tran-03: all 0.3s ease;
+    --tran-04: all 0.3s ease;
+    --tran-05: all 0.3s ease;
+
+    /*  Margin Body - SideBar  */
+    --margin-left-side: 90px;
+}
+
+body.dark{
+    /*--body-color: #18191a;*/
+    /*--sidebar-color: #242526;*/
+    /*--primary-color: #3a3b3c;*/
+    /*--primary-color-light: #3a3b3c;*/
+    /*--toggle-color: #fff;*/
+    /*--text-color: #ccc;*/
+
+    --body-color: #18191a;
+    --sidebar-color: #242526;
+    --primary-color: #3a3b3c;
+    --primary-color-light: #3a3b3c;
+    --toggle-color: #fff;
+    --text-color: #ccc;
+}
+
+
+body {
+    /*background: var(--primary-color);*/
+    /*background-color: #18191a;*/
+    font-size: 1.6rem; /* reset 10*1.6 = 16px, to make sure you do not get any 10px around */
+    min-height: 100vh;
+    background-color: var(--body-color);
+    transition: var(--tran-05);
+}
+
+.content {
+    margin-left: var(--margin-left-side);
+    padding: 10px;
+    display: grid;
+    gap: 10px;
+
+    /*height: 100%;*/
+    /*background-color: #FDBF60;*/
+}
+
+.sector {
+    /*background-color: #FE6244;*/
+    /*background-color: #D04848;*/
+    background-color: #3468C0;
+    background-color: #E14D2A;
+    background-color: #325288;
+    padding: 15px;
+    display: grid;
+    gap: 5px;
+    box-shadow: 5px 5px;
+}
+
+.sector-header {
+    border-left: 0.5em white solid;
+    padding-left: 1em;
+}
+
+.sector-header h2 {
+    font-family: 'Poppins', sans-serif;
+    color: white;
+}
+
+.sector-header h1 {
+    font-family: 'Poppins', sans-serif;
+    color: white;
+}
+
+.sector-body {
+    border-top: 4px white solid;
+    border-bottom: 4px white solid;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    /*border: 1px blue solid;*/
+}
+
+.sector-in-box {
+    width: 100%;
+    background-color: var(--sidebar-color);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    border-radius: 5px;
+}
+
+/* 추후 CSS 분리 */
+.support-platform {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.support-platform .logos {
+    margin-left: 3em;
+    display: flex;
+    gap: 1em;
+}
+
+.support-platform .logos i {
+    color: white;
+    font-size: 2em;
+}
+
+.header-side {
+    display: flex;
+}
+.header-side * {
+    width: 100%;
+    /*background-color: inherit;*/
+}
+
+
+/* 3D Button */
+.btn-3d {
+    position: relative;
+    display: inline-block;
+    font-size: 1.5rem;
+    padding: 20px 60px;
+    color: white;
+    margin: 20px 10px 10px;
+    border-radius: 6px;
+    text-align: center;
+    transition: top .01s linear;
+    text-shadow: 0 1px 0 rgba(0,0,0,0.15);
+}
+
+.btn-3d.red:hover    {background-color: #e74c3c;}
+.btn-3d.blue:hover   {background-color: #699DD1;}
+.btn-3d.green:hover  {background-color: #80C49D;}
+.btn-3d.purple:hover {background-color: #D19ECB;}
+.btn-3d.yellow:hover {background-color: #F0D264;}
+.btn-3d.cyan:hover   {background-color: #82D1E3;}
+
+.btn-3d:active {
+    top: 9px;
+}
+
+/* 3D button colors */
+.btn-3d.red {
+    background-color: #e74c3c;
+    box-shadow: 0 0 0 1px #c63702 inset,
+    0 0 0 2px rgba(255,255,255,0.15) inset,
+    0 8px 0 0 #C24032,
+    0 8px 0 1px rgba(0,0,0,0.4),
+    0 8px 8px 1px rgba(0,0,0,0.5);
+}
+.btn-3d.red:active {
+    box-shadow: 0 0 0 1px #c63702 inset,
+    0 0 0 2px rgba(255,255,255,0.15) inset,
+    0 0 0 1px rgba(0,0,0,0.4);
+}
+
+.btn-3d.blue {
+    background-color: #6DA2D9;
+    box-shadow: 0 0 0 1px #6698cb inset,
+    0 0 0 2px rgba(255,255,255,0.15) inset,
+    0 8px 0 0 rgba(110, 164, 219, .7),
+    0 8px 0 1px rgba(0,0,0,.4),
+    0 8px 8px 1px rgba(0,0,0,0.5);
+}
+.btn-3d.blue:active {
+    box-shadow: 0 0 0 1px #6191C2 inset,
+    0 0 0 2px rgba(255,255,255,0.15) inset,
+    0 0 0 1px rgba(0,0,0,0.4);
+}
+
+.btn-3d.green {
+    background-color: #82c8a0;
+    box-shadow: 0 0 0 1px #82c8a0 inset,
+    0 0 0 2px rgba(255,255,255,0.15) inset,
+    0 8px 0 0 rgba(126, 194, 155, .7),
+    0 8px 0 1px rgba(0,0,0,.4),
+    0 8px 8px 1px rgba(0,0,0,0.5);
+}
+.btn-3d.green:active {
+    box-shadow: 0 0 0 1px #82c8a0 inset,
+    0 0 0 2px rgba(255,255,255,0.15) inset,
+    0 0 0 1px rgba(0,0,0,0.4);
+}
+
+.btn-3d.purple {
+    background-color: #cb99c5;
+    box-shadow: 0 0 0 1px #cb99c5 inset,
+    0 0 0 2px rgba(255,255,255,0.15) inset,
+    0 8px 0 0 rgba(189, 142, 183, .7),
+    0 8px 0 1px rgba(0,0,0,.4),
+    0 8px 8px 1px rgba(0,0,0,0.5);
+}
+.btn-3d.purple:active {
+    box-shadow: 0 0 0 1px #cb99c5 inset,
+    0 0 0 2px rgba(255,255,255,0.15) inset,
+    0 0 0 1px rgba(0,0,0,0.4);
+}
+
+.btn-3d.cyan {
+    background-color: #7fccde;
+    box-shadow: 0 0 0 1px #7fccde inset,
+    0 0 0 2px rgba(255,255,255,0.15) inset,
+    0 8px 0 0 rgba(102, 164, 178, .6),
+    0 8px 0 1px rgba(0,0,0,.4),
+    0 8px 8px 1px rgba(0,0,0,0.5);
+}
+.btn-3d.cyan:active {
+    box-shadow: 0 0 0 1px #7fccde inset,
+    0 0 0 2px rgba(255,255,255,0.15) inset,
+    0 0 0 1px rgba(0,0,0,0.4);
+}
+
+.btn-3d.yellow {
+    background-color: #F0D264;
+    box-shadow: 0 0 0 1px #F0D264 inset,
+    0 0 0 2px rgba(255,255,255,0.15) inset,
+    0 8px 0 0 rgba(196, 172, 83, .7),
+    0 8px 0 1px rgba(0,0,0,.4),
+    0 8px 8px 1px rgba(0,0,0,0.5);
+}
+.btn-3d.yellow:active {
+    box-shadow: 0 0 0 1px #F0D264 inset,
+    0 0 0 2px rgba(255,255,255,0.15) inset,
+    0 0 0 1px rgba(0,0,0,0.4);
+}
+
+
+/*.server-area {*/
+/*    border: 1px red solid;*/
+/*    width: 100%;*/
+/*    color: #D2D1D5;*/
+/*}*/
+
+/*.server-table {*/
+/*    width: 100%;*/
+/*    font-family: 'Poppins', sans-serif;*/
+/*    background-color: white;*/
+/*}*/
+
+/*.server-table thead th {*/
+/*    background-color: #C63D2F;*/
+/*    color: white;*/
+/*    padding-top: 5px;*/
+/*    padding-bottom: 5px;*/
+/*}*/
+
+/*.server-table tbody tr {*/
+/*    color: #18191a;*/
+/*    padding: 3px 10px;*/
+/*    text-align: center;*/
+/*    !*font-family: 'Fjalla One';*!*/
+/*}*/
+
+/*tbody tr:nth-child(even) {*/
+/*    background-color: #EADBC8;*/
+/*}*/
+/*tbody tr:nth-child(odd) {*/
+/*    background-color: #F8F0E5;*/
+/*}*/
+/*tbody .noBorder {*/
+/*    border:none !important;*/
+/*}*/
+
+/*tbody tr:hover {*/
+/*    background-color: #E25E3E;*/
+/*    cursor: pointer;*/
+/*}*/
+
+
+/*.no-contents {*/
+/*    background-color: #EADBC8;*/
+/*    color: #18191a;*/
+/*    width: 100%;*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    min-height: 10em;*/
+/*}*/
+
+
+
+.table-area {
+    /*border: 1px red solid;*/
+    width: 100%;
+    color: #D2D1D5;
+}
+
+table {
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    background-color: white;
+}
+
+.table-area thead th {
+    background-color: #C63D2F;
+    color: white;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.table-area tbody tr {
+    color: #18191a;
+    padding: 3px 10px;
+    text-align: center;
+    /*font-family: 'Fjalla One';*/
+}
+
+.table-area tbody tr:nth-child(even) {
+    background-color: #EADBC8;
+}
+.table-area tbody tr:nth-child(odd) {
+    background-color: #F8F0E5;
+}
+.table-area tbody .noBorder {
+    border:none !important;
+}
+
+.table-area tbody tr:hover {
+    background-color: #E25E3E;
+    cursor: pointer;
+}
+
+
+.no-content {
+    background-color: #EADBC8;
+    color: #18191a;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 10em;
+}

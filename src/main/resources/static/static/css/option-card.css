@@ -1,0 +1,155 @@
+
+:root {
+    --dark-color-lighten: #f2f5ff;
+    --red-card: #a62121;
+    --blue-card: #4bb7e6;
+    --btn: #332941;
+    --btn-hover: #3468C0;
+    --text: #fbf7f7;
+}
+
+section {
+    /*border: 1px blue solid;*/
+}
+
+.container {
+    height: 100%;
+    width: 100%;
+    /*margin: auto;*/
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.card {
+    position: relative;
+    padding: 1rem;
+    width: 300px;
+    /*height: 350px;*/
+    height: auto;
+    box-shadow: -1px 15px 30px -12px rgb(32, 32, 32);
+    border-radius: 0.9rem;
+    background-color: var(--red-card);
+    border: white 10px solid;
+    color: var(--text);
+    cursor: pointer;
+}
+
+/* 컬러 조합 : https://colorhunt.co/palette/ffaf45fb6d48d74b76673f69*/
+.card#first-opt {
+    background-color: #FFAF45;
+}
+.card#second-opt {
+    background-color: #FB6D48;
+}
+.card#third-opt {
+    background-color: #D74B76;
+}
+
+
+.product-image img {
+    max-width: 100%;
+    height: 100%;
+    user-select: none;
+}
+
+.product-image {
+    /*height: 230px;*/
+    display: flex;
+    justify-content: center;
+    height: 50%;
+    width: 100%;
+    transform: translate(0, -1.5rem);
+    transition: transform 500ms ease-in-out;
+    filter: drop-shadow(5px 10px 15px rgba(8, 9, 13, 0.4));
+    /*border: 1px blue solid;*/
+}
+
+.card:hover .product-image.default {
+    transform: translate(-1.5rem, -7rem) rotate(-20deg);
+}
+
+.card:hover .product-image.joystick {
+    animation: vibration .1s infinite;
+}
+
+.card:hover .product-image.gamepad {
+    animation: vibration .1s infinite;
+}
+
+.card:hover .product-image.famicom {
+    animation: vibration .1s infinite;
+}
+
+@keyframes vibration {
+    from {
+        transform: rotate(1.2deg);
+    }
+    to {
+        transform: rotate(-1.2deg);
+    }
+}
+
+.product-info {
+    /*text-align: center;*/
+    display: grid;
+    gap: 10px;
+}
+
+.product-info h2 {
+    /*font-family: 'Retro New Version', sans-serif;*/
+    /*font-family: 'Retrolight', sans-serif;*/
+    /*font-family: "Retro Gaming";*/
+    font-family: 'Press Start 2P';
+
+    /*color: #18191a;*/
+    font-size: 2rem;
+    font-weight: 700;
+    padding-bottom: 10px;
+    border-bottom: 5px white solid;
+
+    /*background: -webkit-linear-gradient(#eee, #333);*/
+    /*background: linear-gradient(#292931 0%, #525CEB 100%);*/
+    background: linear-gradient(#292931 0%, #525CEB 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.product-info p {
+    font-family: 'Poppins', sans-serif;
+    margin: 0.4rem;
+    font-size: 1em;
+    font-weight: 600;
+}
+
+.buy-btn {
+    font-family: 'Press Start 2P';
+    background-color: var(--btn);
+    width: 100%;
+    margin-top: 15px;
+    /*margin-bottom: 10px;*/
+    padding: 0.6rem 3.5rem;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: 300ms ease;
+    color: white;
+    border: 1px solid rgba(0,0,0,0.21);
+    border-bottom: 4px solid rgba(0,0,0,0.21);
+    border-radius: 4px;
+    text-shadow: 0 1px 0 rgba(0,0,0,0.15);
+}
+
+.buy-btn:hover {
+    background-color: var(--btn-hover);
+}
+
+@media screen and (max-width: 800px) {
+    body {
+        height: auto;
+    }
+    .container {
+        padding: 2rem 0;
+        width: 100%;
+        flex-direction: column;
+        gap: 3rem;
+    }
+}
