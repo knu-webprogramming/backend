@@ -35,7 +35,6 @@ public class OAuth2UserServiceImpl implements OAuth2UserService<OAuth2UserReques
         if (attributes == null) {
             throw new OAuth2AuthenticationException("지원하지 않는 로그인 타입 입니다.");
         }
-
         Member member = memberService.upsertMemberByOAuth(attributes);
 
         return new DefaultOAuth2User(Collections.singleton(new SimpleGrantedAuthority(member.getRole().getKey())),

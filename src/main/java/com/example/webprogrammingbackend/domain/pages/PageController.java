@@ -1,5 +1,6 @@
 package com.example.webprogrammingbackend.domain.pages;
 
+import com.example.webprogrammingbackend.domain.customers.CustomerEnrollForm;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -40,6 +41,12 @@ public class PageController {
     public String adminPage(Model model) {
         model.addAttribute("title","Admin Page");
         return "pages/admins/admin";
+    }
+
+    @GetMapping("/page")
+    String test(Model model) {
+        model.addAttribute("customerEnrollForm", new CustomerEnrollForm());
+        return "pages/test";
     }
 
 }

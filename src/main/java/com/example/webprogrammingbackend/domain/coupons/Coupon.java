@@ -4,6 +4,7 @@ import com.example.webprogrammingbackend.domain.customers.Customer;
 import com.example.webprogrammingbackend.domain.shops.Shop;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -28,4 +29,18 @@ public class Coupon {
     private Shop shop;
 
     private Integer stamps;
+
+    private Integer maxStamps;
+
+    private String reward;
+
+    @Builder
+    public Coupon(UUID id, Customer customer, Shop shop, Integer stamps, Integer maxStamps, String reward) {
+        this.id = id;
+        this.customer = customer;
+        this.shop = shop;
+        this.stamps = stamps;
+        this.maxStamps = maxStamps;
+        this.reward = reward;
+    }
 }

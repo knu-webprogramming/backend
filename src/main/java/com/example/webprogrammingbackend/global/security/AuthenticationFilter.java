@@ -41,11 +41,12 @@ public class AuthenticationFilter extends OncePerRequestFilter {
 
             // 사용자명을 사용하여 UserDetails 객체를 로드합니다.
             UserDetails userDetails = memberService.loadUserByUsername(username);
-
+            log.info("auth Filter userDetails: {}", userDetails.getUsername());
             // UserDetails를 사용하여 UsernamePasswordAuthenticationToken을 생성합니다.
             // 이 토큰은 인증된 사용자를 나타냅니다. 여기서는 패스워드를 null로 설정하며,
             // 이미 토큰을 통해 사용자의 신원이 검증되었기 때문에 안전합니다.
-            UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
+            UsernamePasswordAuthenticationToken authentication =
+                    new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
 
 
             // 요청에 대한 세부 사항을 설정합니다.

@@ -1,6 +1,8 @@
 package com.example.webprogrammingbackend.domain.members;
 
 import com.example.webprogrammingbackend.domain.common.entity.BaseEntity;
+import com.example.webprogrammingbackend.domain.customers.Customer;
+import com.example.webprogrammingbackend.domain.shops.Shop;
 import com.example.webprogrammingbackend.global.security.OAuth2Attribute;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
@@ -50,7 +52,11 @@ public class Member extends BaseEntity {
     @Column()
     private String profileImage;
 
+    @OneToOne(mappedBy = "member")
+    private Customer customer;
 
+    @OneToOne(mappedBy = "member")
+    private Shop shop;
 
 
     /* 토큰 관련 */

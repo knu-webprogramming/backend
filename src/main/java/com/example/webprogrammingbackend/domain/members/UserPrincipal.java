@@ -29,6 +29,9 @@ public class UserPrincipal implements UserDetails {
         return authorities;
     }
 
+
+    public UUID getId() { return id; }
+
     @Override
     public String getPassword() {
         return password;

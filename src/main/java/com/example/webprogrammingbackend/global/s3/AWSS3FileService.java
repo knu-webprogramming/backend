@@ -11,13 +11,13 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 
-//@Service
+@Service
 @RequiredArgsConstructor
 public class AWSS3FileService {
 
     private final AmazonS3Client amazonS3Client;
 
-    //@Value("${cloud.aws.s3.bucket}")
+    @Value("${cloud.aws.s3.bucket}")
     private String bucket;
 
     public void putObject(MultipartFile file, String key , String filename) throws DomainException {
@@ -29,5 +29,15 @@ public class AWSS3FileService {
         } catch (IOException e) {
             throw new DomainException(ErrorCode.INVALID_IMAGE_FILE);
         }
+    }
+
+    public static String extractExt(String originalFilename) {
+        int pos = originalFilename.lastIndexOf(".");
+        return originalFilename.substring(pos );
+    }
+
+    // TODO getImageUrl 구현
+    public static String getImageUrl(String key, String filename){
+        return "couponwallet.s3.ap-northeast-2.amazonaws.com/"+ key + "/" +filename;
     }
 }
