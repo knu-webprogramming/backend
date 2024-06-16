@@ -13,6 +13,7 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import org.springframework.web.filter.CorsFilter;
 
 @Configuration
 @RequiredArgsConstructor
@@ -26,7 +27,7 @@ public class SecurityConfig {
     private final OAuth2UserServiceImpl oAuth2UserService;
     private final AuthenticationSuccessHandlerImpl authenticationSuccessHandler;
     private final AuthenticationFilter authenticationFilter;
-
+    private final CorsFilter corsFilter;
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
@@ -63,6 +64,7 @@ public class SecurityConfig {
 
         http
                 .addFilterBefore(authenticationFilter, UsernamePasswordAuthenticationFilter.class)
+                .addFilter(corsFilter)
                 .oauth2Login(oauth2 -> oauth2
                                 .loginPage("/login")
                                 .userInfoEndpoint(userInfo -> userInfo

@@ -3,15 +3,13 @@ package com.example.webprogrammingbackend.domain.coupons;
 import com.example.webprogrammingbackend.domain.customers.Customer;
 import com.example.webprogrammingbackend.domain.shops.Shop;
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.UUID;
 
 @Entity
 @Getter
+@Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Coupon {
 
@@ -34,13 +32,17 @@ public class Coupon {
 
     private String reward;
 
+    private String stampType;
+
     @Builder
-    public Coupon(UUID id, Customer customer, Shop shop, Integer stamps, Integer maxStamps, String reward) {
+
+    public Coupon(UUID id, Customer customer, Shop shop, Integer stamps, Integer maxStamps, String reward, String stampType) {
         this.id = id;
         this.customer = customer;
         this.shop = shop;
         this.stamps = stamps;
         this.maxStamps = maxStamps;
         this.reward = reward;
+        this.stampType = stampType;
     }
 }

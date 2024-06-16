@@ -48,6 +48,7 @@ public class ShopService {
             shop.setX(shopEnrollForm.getX());
             shop.setAddressName(shopEnrollForm.getAddressName());
             shop.setPlaceName(shopEnrollForm.getPlaceName());
+            shop.setStampType(shopEnrollForm.getStampType());
         } else {
             // Create new customer
             shop = new Shop();
@@ -62,11 +63,13 @@ public class ShopService {
             shop.setX(shopEnrollForm.getX());
             shop.setAddressName(shopEnrollForm.getAddressName());
             shop.setPlaceName(shopEnrollForm.getPlaceName());
+            shop.setStampType(shopEnrollForm.getStampType());
         }
 
 
         Shop savedShop = shopRepository.save(shop);
-        awss3FileService.putObject(shopEnrollForm.getImage(), "shop", userId.toString()  + extractExt(shopEnrollForm.getImage().getOriginalFilename()));
+        if(!shopEnrollForm.getImage().isEmpty())
+            awss3FileService.putObject(shopEnrollForm.getImage(), "shop", userId.toString()  + extractExt(shopEnrollForm.getImage().getOriginalFilename()));
         return ShopDto.builder()
                 .name(savedShop.getName())
                 .reward(savedShop.getReward())
@@ -79,6 +82,7 @@ public class ShopService {
                 .x(shopEnrollForm.getX())
                 .addressName(shopEnrollForm.getAddressName())
                 .placeName(shopEnrollForm.getPlaceName())
+                .stampType(shopEnrollForm.getStampType())
                 .build();
     }
 
@@ -96,6 +100,7 @@ public class ShopService {
                 .phoneNum(shop.getPhoneNum())
                 .maxStamps(shop.getMaxStamps())
                 .ownerName(shop.getOwnerName())
+                .stampType(shop.getStampType())
                 .y(shop.getY())
                 .x(shop.getX())
                 .addressName(shop.getAddressName())
@@ -117,6 +122,7 @@ public class ShopService {
                                     .maxStamps(shop.getMaxStamps())
                                     .ownerName(shop.getOwnerName())
                                     .y(shop.getY())
+                                    .stampType(shop.getStampType())
                                     .x(shop.getX())
                                     .addressName(shop.getAddressName())
                                     .placeName(shop.getPlaceName())

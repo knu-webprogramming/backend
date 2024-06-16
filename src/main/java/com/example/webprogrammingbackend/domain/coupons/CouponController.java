@@ -42,4 +42,20 @@ public class CouponController {
         List couponsDto = couponService.getCoupons(userId);
         return ResponseEntity.ok(couponsDto);
     }
+
+    @PostMapping("/coupon/stamp/{shopId}")
+    public ResponseEntity couponStamp(@PathVariable UUID shopId) throws DomainException {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        UUID userId = UUID.fromString(authentication.getName());
+        CouponDto couponDto = couponService.couponStamp(userId, shopId);
+        return ResponseEntity.ok(couponDto);
+    }
+
+    @PostMapping("/coupon/use/{shopId}")
+    public ResponseEntity useCoupon(@PathVariable UUID shopId) throws DomainException {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        UUID userId = UUID.fromString(authentication.getName());
+        CouponDto couponDto = couponService.useCoupon(userId, shopId);
+        return ResponseEntity.ok(couponDto);
+    }
 }

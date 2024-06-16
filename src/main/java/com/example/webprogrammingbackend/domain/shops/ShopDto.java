@@ -34,10 +34,11 @@ public class ShopDto {
 
     private String x;
 
+    private String stampType;
 
     @Builder
 
-    public ShopDto(UUID shopId, String name, String phoneNum, String ownerName, Integer maxStamps, String reward, String profileImageUrl, String placeName, String addressName, String y, String x) {
+    public ShopDto(UUID shopId, String name, String phoneNum, String ownerName, Integer maxStamps, String reward, String profileImageUrl, String placeName, String addressName, String y, String x, String stampType) {
         this.shopId = shopId;
         this.name = name;
         this.phoneNum = phoneNum;
@@ -49,5 +50,6 @@ public class ShopDto {
         this.addressName = addressName;
         this.y = y;
         this.x = x;
+        this.stampType = stampType;
     }
 }

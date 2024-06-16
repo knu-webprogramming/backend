@@ -33,7 +33,7 @@ spring:
               - profile
               - email
           kakao:
-            client-id: ${KAKAO_CLIENT_ID}
+            client-id: 167c38f69a54ab1163035776add4b54d
             # Spring OAuth2 기본 리다이렉트 url 형태 ( {base-url}/login/oauth2/code/{registrationId} )
             redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
             authorization-grant-type: authorization_code

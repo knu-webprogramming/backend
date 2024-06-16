@@ -31,4 +31,6 @@ public class ShopEnrollForm {
 
     private String x;
 
+    private String stampType;
+
 }

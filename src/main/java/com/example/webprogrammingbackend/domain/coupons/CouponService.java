@@ -30,17 +30,26 @@ public class CouponService {
         Customer customer = member.getCustomer();
         Shop shop = shopRepository.findById(shopId)
                 .orElseThrow(() -> new DomainException(ErrorCode.NOT_FOUND_DATA, "존재하지 않는 가게입니다."));
+        List<Coupon> coupons = shop.getCoupons();
+        for (Coupon coupon : coupons) {
+            if(coupon.getShop().getId().toString().equals(shopId.toString())){
+                throw new DomainException(ErrorCode.DUPLICATE_RESOURCE, "이미 등록된 쿠폰입니다. ");
+            }
+        }
         Coupon coupon = Coupon.builder()
                 .stamps(0)
                 .reward(shop.getReward())
                 .maxStamps(shop.getMaxStamps())
                 .shop(shop)
+                .stampType(shop.getStampType())
                 .customer(customer)
                 .build();
         Coupon savedCoupon = couponRepository.save(coupon);
         return CouponDto.builder()
                 .stamps(0)
                 .maxStamps(savedCoupon.getMaxStamps())
+                .stampType(coupon.getStampType())
+                .shopId(shopId)
                 .reward(savedCoupon.getReward())
                 .build();
     }
@@ -55,7 +64,9 @@ public class CouponService {
                 return CouponDto.builder()
                         .reward(coupon.getReward())
                         .stamps(coupon.getStamps())
+                        .stampType(coupon.getStampType())
                         .maxStamps(coupon.getMaxStamps())
+                        .shopId(shopId)
                         .build();
             }
         }
@@ -71,9 +82,55 @@ public class CouponService {
                 CouponDto.builder()
                         .stamps(coupon.getStamps())
                         .maxStamps(coupon.getMaxStamps())
+                        .stampType(coupon.getStampType())
+                        .shopId(coupon.getShop().getId())
                         .reward(coupon.getReward())
                         .build()
         ) );
         return coupons;
+    }
+
+    public CouponDto couponStamp(UUID userId, UUID shopId) throws DomainException {
+        Member member = memberRepository.findById(userId)
+                .orElseThrow(() -> new DomainException(ErrorCode.NOT_FOUND_DATA, "존재하지 않는 유저입니다."));
+        Customer customer = member.getCustomer();
+        List<Coupon> coupons = customer.getCoupons();
+        for (Coupon coupon : coupons) {
+            if (coupon.getShop().getId().toString().equals(shopId.toString())) {
+                coupon.setStamps(coupon.getStamps() + 1);
+                couponRepository.save(coupon);
+                return CouponDto.builder()
+                        .reward(coupon.getReward())
+                        .stamps(coupon.getStamps())
+                        .stampType(coupon.getStampType())
+                        .shopId(shopId)
+                        .maxStamps(coupon.getMaxStamps())
+                        .build();
+            }
+        }
+        return new CouponDto();
+    }
+
+    public CouponDto useCoupon(UUID userId, UUID shopId) throws DomainException {
+        Member member = memberRepository.findById(userId)
+                .orElseThrow(() -> new DomainException(ErrorCode.NOT_FOUND_DATA, "존재하지 않는 유저입니다."));
+        Customer customer = member.getCustomer();
+        List<Coupon> coupons = customer.getCoupons();
+        for (Coupon coupon : coupons) {
+            if (coupon.getShop().getId().toString().equals(shopId.toString())) {
+                if(coupon.getStamps() < coupon.getMaxStamps())
+                    throw new DomainException(ErrorCode.NOT_FOUND_DATA, "쿠폰 개수가 부족합니다.");
+                coupon.setStamps(coupon.getStamps() - coupon.getMaxStamps());
+                couponRepository.save(coupon);
+                return CouponDto.builder()
+                        .reward(coupon.getReward())
+                        .stamps(coupon.getStamps())
+                        .shopId(shopId)
+                        .stampType(coupon.getStampType())
+                        .maxStamps(coupon.getMaxStamps())
+                        .build();
+            }
+        }
+        return new CouponDto();
     }
 }

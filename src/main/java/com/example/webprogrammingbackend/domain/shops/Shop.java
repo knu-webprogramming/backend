@@ -51,9 +51,11 @@ public class Shop {
 
     private String x;
 
+    private String stampType;
+
     @Builder
 
-    public Shop(UUID id, String name, Member member, String phoneNum, String ownerName, List<Coupon> coupons, Integer maxStamps, String reward, String profileImage, String placeName, String addressName, String y, String x) {
+    public Shop(UUID id, String name, Member member, String phoneNum, String ownerName, List<Coupon> coupons, Integer maxStamps, String reward, String profileImage, String placeName, String addressName, String y, String x, String stampType) {
         this.id = id;
         this.name = name;
         this.member = member;
@@ -67,5 +69,6 @@ public class Shop {
         this.addressName = addressName;
         this.y = y;
         this.x = x;
+        this.stampType = stampType;
     }
 }
