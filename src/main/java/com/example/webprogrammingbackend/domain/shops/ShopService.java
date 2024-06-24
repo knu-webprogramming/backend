@@ -43,7 +43,8 @@ public class ShopService {
             shop.setMember(member);
             shop.setReward(shopEnrollForm.getReward());
             shop.setMaxStamps(shopEnrollForm.getMaxStamps());
-            shop.setProfileImage(userId.toString() + extractExt(shopEnrollForm.getImage().getOriginalFilename()));
+            if(shopEnrollForm.getImage() != null)
+                shop.setProfileImage(userId.toString() + extractExt(shopEnrollForm.getImage().getOriginalFilename()));
             shop.setY(shopEnrollForm.getY());
             shop.setX(shopEnrollForm.getX());
             shop.setAddressName(shopEnrollForm.getAddressName());
@@ -58,7 +59,8 @@ public class ShopService {
             shop.setMember(member);
             shop.setReward(shopEnrollForm.getReward());
             shop.setMaxStamps(shopEnrollForm.getMaxStamps());
-            shop.setProfileImage(userId.toString() + extractExt(shopEnrollForm.getImage().getOriginalFilename()));
+            if(shopEnrollForm.getImage() != null)
+                shop.setProfileImage(userId.toString() + extractExt(shopEnrollForm.getImage().getOriginalFilename()));
             shop.setY(shopEnrollForm.getY());
             shop.setX(shopEnrollForm.getX());
             shop.setAddressName(shopEnrollForm.getAddressName());
@@ -68,7 +70,7 @@ public class ShopService {
 
 
         Shop savedShop = shopRepository.save(shop);
-        if(!shopEnrollForm.getImage().isEmpty())
+        if(shopEnrollForm.getImage() != null)
             awss3FileService.putObject(shopEnrollForm.getImage(), "shop", userId.toString()  + extractExt(shopEnrollForm.getImage().getOriginalFilename()));
         return ShopDto.builder()
                 .name(savedShop.getName())

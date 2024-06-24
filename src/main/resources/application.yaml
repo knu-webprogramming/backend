@@ -12,10 +12,11 @@ spring:
     static-path-pattern: /static/**
 
   datasource:
-    url: jdbc:h2:mem:test
-    username: sa
-    password:
-    driver-class-name: org.h2.Driver
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://${postgres_host}:${postgres_port}/${postgres_db}?characterEncoding=utf8&serverTimezone=Asia/Seoul
+    username: ${postgres_username}
+    password: ${postgres_password}
+
 
   jpa:
     hibernate:
@@ -26,9 +27,9 @@ spring:
       client:
         registration:
           google:
-            client-id: ${google-client-id} #(클라이언트 ID)
-            client-secret: ${google-client-secret} #(클라이언트 보안 비밀번호)
-            redirect-uri: ${google-redirect-uri} # 커스텀 리다이렉트 URI 가 안되는 이유 찾아보기
+            client-id: ${google_client_id} #(클라이언트 ID)
+            client-secret: ${google_client_secret} #(클라이언트 보안 비밀번호)
+            redirect-uri: ${google_redirect_uri} # 커스텀 리다이렉트 URI 가 안되는 이유 찾아보기
             scope:
               - profile
               - email

@@ -30,7 +30,7 @@ public class CustomerService {
     public CustomerDto enrollCustomer(UUID userId, CustomerEnrollForm customerEnrollForm) throws DomainException {
         Member member = memberRepository.findById(userId)
                 .orElseThrow(() -> new DomainException(ErrorCode.NOT_FOUND_DATA, "존재하지 않는 유저입니다."));
-        awss3FileService.putObject(customerEnrollForm.getImage(), "cus", userId.toString()  + extractExt(customerEnrollForm.getImage().getOriginalFilename()));
+
         Optional<Customer> existingCustomer = customerRepository.findByMemberId(userId);
 
         Customer customer;
@@ -38,14 +38,19 @@ public class CustomerService {
             // Update existing customer
             customer = existingCustomer.get();
             customer.setName(customerEnrollForm.getName());
-            customer.setProfileImage(userId.toString()  + extractExt(customerEnrollForm.getImage().getOriginalFilename()));
+            if(customerEnrollForm.getImage() != null)
+                customer.setProfileImage(userId.toString()  + extractExt(customerEnrollForm.getImage().getOriginalFilename()));
         } else {
             // Create new customer
             customer = new Customer();
             customer.setMember(member);
             customer.setName(customerEnrollForm.getName());
-            customer.setProfileImage(userId.toString()  + extractExt(customerEnrollForm.getImage().getOriginalFilename()));
+            if(customerEnrollForm.getImage() != null)
+                customer.setProfileImage(userId.toString()  + extractExt(customerEnrollForm.getImage().getOriginalFilename()));
         }
+
+        if(customerEnrollForm.getImage() != null)
+            awss3FileService.putObject(customerEnrollForm.getImage(), "cus", userId.toString()  + extractExt(customerEnrollForm.getImage().getOriginalFilename()));
 
         Customer savedCustomer = customerRepository.save(customer);
         return CustomerDto.builder()

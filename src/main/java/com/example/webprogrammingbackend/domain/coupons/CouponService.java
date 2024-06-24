@@ -30,7 +30,7 @@ public class CouponService {
         Customer customer = member.getCustomer();
         Shop shop = shopRepository.findById(shopId)
                 .orElseThrow(() -> new DomainException(ErrorCode.NOT_FOUND_DATA, "존재하지 않는 가게입니다."));
-        List<Coupon> coupons = shop.getCoupons();
+        List<Coupon> coupons = customer.getCoupons();
         for (Coupon coupon : coupons) {
             if(coupon.getShop().getId().toString().equals(shopId.toString())){
                 throw new DomainException(ErrorCode.DUPLICATE_RESOURCE, "이미 등록된 쿠폰입니다. ");
@@ -62,10 +62,10 @@ public class CouponService {
         for (Coupon coupon : coupons) {
             if(coupon.getShop().getId().toString().equals(shopId.toString())){
                 return CouponDto.builder()
-                        .reward(coupon.getReward())
+                        .reward(coupon.getShop().getReward())
                         .stamps(coupon.getStamps())
-                        .stampType(coupon.getStampType())
-                        .maxStamps(coupon.getMaxStamps())
+                        .stampType(coupon.getShop().getStampType())
+                        .maxStamps(coupon.getShop().getMaxStamps())
                         .shopId(shopId)
                         .build();
             }
@@ -81,10 +81,10 @@ public class CouponService {
         customer.getCoupons().forEach((coupon) -> coupons.add(
                 CouponDto.builder()
                         .stamps(coupon.getStamps())
-                        .maxStamps(coupon.getMaxStamps())
-                        .stampType(coupon.getStampType())
+                        .maxStamps(coupon.getShop().getMaxStamps())
+                        .stampType(coupon.getShop().getStampType())
                         .shopId(coupon.getShop().getId())
-                        .reward(coupon.getReward())
+                        .reward(coupon.getShop().getReward())
                         .build()
         ) );
         return coupons;
@@ -100,11 +100,11 @@ public class CouponService {
                 coupon.setStamps(coupon.getStamps() + 1);
                 couponRepository.save(coupon);
                 return CouponDto.builder()
-                        .reward(coupon.getReward())
+                        .reward(coupon.getShop().getReward())
                         .stamps(coupon.getStamps())
-                        .stampType(coupon.getStampType())
+                        .stampType(coupon.getShop().getStampType())
                         .shopId(shopId)
-                        .maxStamps(coupon.getMaxStamps())
+                        .maxStamps(coupon.getShop().getMaxStamps())
                         .build();
             }
         }
@@ -123,11 +123,11 @@ public class CouponService {
                 coupon.setStamps(coupon.getStamps() - coupon.getMaxStamps());
                 couponRepository.save(coupon);
                 return CouponDto.builder()
-                        .reward(coupon.getReward())
+                        .reward(coupon.getShop().getReward())
                         .stamps(coupon.getStamps())
                         .shopId(shopId)
-                        .stampType(coupon.getStampType())
-                        .maxStamps(coupon.getMaxStamps())
+                        .stampType(coupon.getShop().getStampType())
+                        .maxStamps(coupon.getShop().getMaxStamps())
                         .build();
             }
         }
